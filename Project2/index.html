@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Random Hexa Color Generator!</title>
+</head>
+<body>
+    
+    <h1>Hexa Color Code : <span></span></h1>
+    <button id="colorGenerator">Generate Hexa Color Code </button>
+
+
+    <script>
+        const btn = document.querySelector('#colorGenerator'),
+              body = document.querySelector('body'),
+              hexa = [0,1,2,3,4,5,6,7,8,9, 'a', 'b', 'c', 'd', 'e', 'f'],
+              hCode = document.querySelector('h1 span');
+
+              generateColor = () => {
+                  let hex = '#';
+                  for(let i = 0; i < 6; i++){
+                      const index = Math.floor(Math.random()*hexa.length);
+                      //console.log(index);
+                      hex += hexa[index];                      
+                  }
+                  hCode.textContent = hex;
+                  body.style.background = hex;
+              }
+                            
+              btn.addEventListener('click', generateColor);
+
+
+
+    </script>
+
+</body>
+</html>
