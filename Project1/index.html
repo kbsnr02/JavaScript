@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Color Change on Every Click!</title>
+</head>
+<body>
 
+    <button id="bodyColorChange">Hit Me!</button>
+
+
+    <style>
+
+        #bodyColorChange{
+            font-size: 24px;
+            cursor: pointer;
+            padding: 20px 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            border: #333 solid 3px;
+            background: #fff;
+        }
+
+    </style>
+
+    <script>
+
+        const btn = document.querySelector('#bodyColorChange'),
+              body = document.querySelector('body');
+
+        let colors = ['#ff5e0a', '#f08f90', '#141414', '#3f000f', '#40e0d0', '#32ac1e', '#333f81'],
+         clr = 0;
+        
+        changeBodyColor = () => {
+            body.style.background = colors[clr];
+            clr++;
+            if (colors.length === clr) {
+                clr = 0;
+            }
+        }
+        
+        btn.addEventListener('click', changeBodyColor);
+
+    </script>
+
+</body>
+</html>
